@@ -1,18 +1,16 @@
 package com.johnlpage.pocdriver;
 
-import com.mongodb.client.MongoClient;
+import static com.mongodb.client.model.Projections.fields;
+import static com.mongodb.client.model.Projections.include;
+import static com.mongodb.client.model.Sorts.descending;
+
 import com.mongodb.bulk.BulkWriteResult;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoCursor;
-import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.*;
 import com.mongodb.client.model.BulkWriteOptions;
 import com.mongodb.client.model.InsertOneModel;
 import com.mongodb.client.model.UpdateManyModel;
 import com.mongodb.client.model.WriteModel;
-import org.apache.commons.math3.distribution.ZipfDistribution;
-import org.bson.Document;
 import java.time.ZonedDateTime;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -20,20 +18,20 @@ import java.util.List;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static com.mongodb.client.model.Projections.fields;
-import static com.mongodb.client.model.Projections.include;
-import static com.mongodb.client.model.Sorts.descending;
+import org.apache.commons.math3.distribution.ZipfDistribution;
+import org.bson.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class MongoWorker implements Runnable {
 
+    Logger logger;
     private MongoClient mongoClient;
     private MongoCollection<Document> coll;
     private ArrayList<MongoCollection<Document>> colls;
     private POCTestOptions testOpts;
     private POCTestResults testResults;
+    private ClientSession clientSession;
     private int workerID;
     private int sequence;
     private int numShards = 0;
@@ -46,11 +44,50 @@ public class MongoWorker implements Runnable {
     private ArrayList<Document> keyStack;
     private int lastCollection;
     private int maxCollections;
-
     private BulkWriteOptions bulkOptions = new BulkWriteOptions();
 
-    Logger logger;
 
+    MongoWorker(MongoClient c, POCTestOptions t, POCTestResults r, int id) {
+        mongoClient = c;
+        clientSession = mongoClient.startSession();
+        logger = LoggerFactory.getLogger(MongoWorker.class);
+        // Ping
+        c.getDatabase("admin").runCommand(new Document("ping", 1));
+        testOpts = t;
+        testResults = r;
+        workerID = id;
+        MongoDatabase db = mongoClient.getDatabase(testOpts.databaseName);
+        maxCollections = testOpts.numcollections;
+        String baseCollectionName = testOpts.collectionName;
+        if (maxCollections > 1) {
+            colls = new ArrayList<MongoCollection<Document>>();
+            lastCollection = 0;
+            for (int i = 0; i < maxCollections; i++) {
+                String str = baseCollectionName + i;
+                colls.add(db.getCollection(str));
+            }
+        } else {
+            coll = db.getCollection(baseCollectionName);
+        }
+
+        // id
+        sequence = getHighestID();
+
+        ReviewShards();
+        rng = new Random();
+        if (testOpts.zipfian) {
+            zipfian = true;
+            zipf = new ZipfDistribution(testOpts.zipfsize, 0.99);
+        }
+
+        if (testOpts.workflow != null) {
+            workflow = testOpts.workflow;
+            workflowed = true;
+            keyStack = new ArrayList<Document>();
+        }
+        bulkOptions.ordered(testOpts.orderedBatch);
+
+    }
 
     private void ReviewShards() {
         String primaryShard = null;
@@ -151,47 +188,6 @@ public class MongoWorker implements Runnable {
         }
     }
 
-    MongoWorker(MongoClient c, POCTestOptions t, POCTestResults r, int id) {
-        mongoClient = c;
-        logger = LoggerFactory.getLogger(MongoWorker.class);
-        // Ping
-        c.getDatabase("admin").runCommand(new Document("ping", 1));
-        testOpts = t;
-        testResults = r;
-        workerID = id;
-        MongoDatabase db = mongoClient.getDatabase(testOpts.databaseName);
-        maxCollections = testOpts.numcollections;
-        String baseCollectionName = testOpts.collectionName;
-        if (maxCollections > 1) {
-            colls = new ArrayList<MongoCollection<Document>>();
-            lastCollection = 0;
-            for (int i = 0; i < maxCollections; i++) {
-                String str = baseCollectionName + i;
-                colls.add(db.getCollection(str));
-            }
-        } else {
-            coll = db.getCollection(baseCollectionName);
-        }
-
-        // id
-        sequence = getHighestID();
-
-        ReviewShards();
-        rng = new Random();
-        if (testOpts.zipfian) {
-            zipfian = true;
-            zipf = new ZipfDistribution(testOpts.zipfsize, 0.99);
-        }
-
-        if (testOpts.workflow != null) {
-            workflow = testOpts.workflow;
-            workflowed = true;
-            keyStack = new ArrayList<Document>();
-        }
-        bulkOptions.ordered(testOpts.orderedBatch);
-
-    }
-
     private int getNextVal(int mult) {
         int rval;
         if (zipfian) {
@@ -249,10 +245,17 @@ public class MongoWorker implements Runnable {
         BulkWriteResult bwResult = null;
 
         while (!submitted && !bulkWriter.isEmpty()) { // can be empty if we removed a Dupe key error
-            try {
-                submitted = true;
-                bwResult = coll.bulkWrite(bulkWriter,bulkOptions);
-            } catch (Exception e) {
+      try {
+        submitted = true;
+        if (testOpts.useTxn == false) {
+          bwResult = coll.bulkWrite(bulkWriter, bulkOptions);
+          logger.debug("Bulk write completed in {} ms", System.currentTimeMillis() - starttime.getTime());
+        } else {
+            clientSession.startTransaction();
+          bwResult = coll.bulkWrite(clientSession, bulkWriter, bulkOptions);
+            clientSession.commitTransaction();
+        }
+      } catch (Exception e) {
                 // We had a problem with this bulk op - some may be completed, some may not
 
                 // I need to resubmit it here
