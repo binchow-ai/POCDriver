@@ -57,6 +57,7 @@ public class POCTestOptions {
     int blobSize = 0;
 
 	boolean findandmodify=false;
+	boolean upsert=false;
 	int workingset = 100;
 	boolean helpOnly = false;
 	String connectionDetails = "mongodb://localhost:27017";
@@ -84,6 +85,7 @@ public class POCTestOptions {
 		cliopt.addOption("k","keyqueries",true,"Ratio of key query operations (default 0)");
 		cliopt.addOption("l","textfieldsize",true,"Length of text fields in bytes (default 30)");
 		cliopt.addOption("m","findandmodify",false,"Use findAndModify instead of update and retrieve document (with -u or -v only)");
+		cliopt.addOption(null,"upsert",false,"Use upsert (insert if not found) for update operations (with -u or -v only)");
 		cliopt.addOption("n","namespace",true,"Namespace to use , for example myDatabase.myCollection");
 		cliopt.addOption("o","logfile",true,"Output stats to  <file> ");
 		cliopt.addOption("p","print",false,"Print out a sample document according to the other parameters then quit");
@@ -265,6 +267,11 @@ public class POCTestOptions {
 		if(cmd.hasOption("m"))
 		{
 			findandmodify = true;
+		}
+		
+		if(cmd.hasOption("upsert"))
+		{
+			upsert = true;
 		}
 		
 		if(cmd.hasOption("f"))

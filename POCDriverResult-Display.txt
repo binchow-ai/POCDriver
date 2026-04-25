@@ -1,0 +1,338 @@
+12:07:09.173 [main] INFO  com.johnlpage.pocdriver.POCDriver - 26 - MongoDB Proof Of Concept  - Load Generator version 4.2
+12:07:11.374 [main] INFO  com.johnlpage.pocdriver.LoadRunner - 145 - threadIdStart=0
+12:07:11.374 [main] INFO  com.johnlpage.pocdriver.LoadRunner - 147 - Launching worker threads
+12:07:11.374 [main] INFO  com.johnlpage.pocdriver.LoadRunner - 149 - Creating worker 0
+12:07:11.785 [main] INFO  com.johnlpage.pocdriver.LoadRunner - 149 - Creating worker 1
+12:07:12.140 [main] INFO  com.johnlpage.pocdriver.LoadRunner - 149 - Creating worker 2
+12:07:12.512 [main] INFO  com.johnlpage.pocdriver.LoadRunner - 149 - Creating worker 3
+12:07:12.811 [main] INFO  com.johnlpage.pocdriver.LoadRunner - 152 - Worker threads all started
+------------------------
+After 13 seconds (12:07:22), 9,564 new documents inserted - collection has 9,564 in total 
+701 inserts per second since last report 
+	0.00 % in under 50 milliseconds
+0 keyqueries per second since last report 
+	100.00 % in under 50 milliseconds
+603 updates per second since last report 
+	4.71 % in under 50 milliseconds
+0 rangequeries per second since last report 
+	100.00 % in under 50 milliseconds
+
+------------------------
+After 23 seconds (12:07:32), 22,649 new documents inserted - collection has 22,649 in total 
+1,359 inserts per second since last report 
+	0.00 % in under 50 milliseconds
+0 keyqueries per second since last report 
+	100.00 % in under 50 milliseconds
+1,776 updates per second since last report 
+	1.97 % in under 50 milliseconds
+0 rangequeries per second since last report 
+	100.00 % in under 50 milliseconds
+
+------------------------
+After 33 seconds (12:07:42), 35,687 new documents inserted - collection has 35,687 in total 
+1,252 inserts per second since last report 
+	0.00 % in under 50 milliseconds
+0 keyqueries per second since last report 
+	100.00 % in under 50 milliseconds
+1,469 updates per second since last report 
+	1.47 % in under 50 milliseconds
+0 rangequeries per second since last report 
+	100.00 % in under 50 milliseconds
+
+------------------------
+After 43 seconds (12:07:52), 42,618 new documents inserted - collection has 42,618 in total 
+693 inserts per second since last report 
+	0.00 % in under 50 milliseconds
+0 keyqueries per second since last report 
+	100.00 % in under 50 milliseconds
+783 updates per second since last report 
+	0.00 % in under 50 milliseconds
+0 rangequeries per second since last report 
+	100.00 % in under 50 milliseconds
+
+------------------------
+After 53 seconds (12:08:02), 55,356 new documents inserted - collection has 55,356 in total 
+1,273 inserts per second since last report 
+	0.00 % in under 50 milliseconds
+0 keyqueries per second since last report 
+	100.00 % in under 50 milliseconds
+620 updates per second since last report 
+	0.94 % in under 50 milliseconds
+0 rangequeries per second since last report 
+	100.00 % in under 50 milliseconds
+
+------------------------
+After 63 seconds (12:08:12), 68,100 new documents inserted - collection has 68,100 in total 
+1,274 inserts per second since last report 
+	0.00 % in under 50 milliseconds
+0 keyqueries per second since last report 
+	100.00 % in under 50 milliseconds
+1,243 updates per second since last report 
+	0.89 % in under 50 milliseconds
+0 rangequeries per second since last report 
+	100.00 % in under 50 milliseconds
+
+------------------------
+After 73 seconds (12:08:22), 85,054 new documents inserted - collection has 85,054 in total 
+1,696 inserts per second since last report 
+	0.00 % in under 50 milliseconds
+0 keyqueries per second since last report 
+	100.00 % in under 50 milliseconds
+1,624 updates per second since last report 
+	0.61 % in under 50 milliseconds
+0 rangequeries per second since last report 
+	100.00 % in under 50 milliseconds
+
+------------------------
+After 83 seconds (12:08:32), 104,135 new documents inserted - collection has 104,135 in total 
+1,907 inserts per second since last report 
+	0.00 % in under 50 milliseconds
+0 keyqueries per second since last report 
+	100.00 % in under 50 milliseconds
+1,163 updates per second since last report 
+	0.54 % in under 50 milliseconds
+0 rangequeries per second since last report 
+	100.00 % in under 50 milliseconds
+
+------------------------
+After 93 seconds (12:08:42), 120,382 new documents inserted - collection has 120,382 in total 
+1,624 inserts per second since last report 
+	0.00 % in under 50 milliseconds
+0 keyqueries per second since last report 
+	100.00 % in under 50 milliseconds
+1,447 updates per second since last report 
+	0.94 % in under 50 milliseconds
+0 rangequeries per second since last report 
+	100.00 % in under 50 milliseconds
+
+------------------------
+After 103 seconds (12:08:52), 137,639 new documents inserted - collection has 137,639 in total 
+1,725 inserts per second since last report 
+	0.00 % in under 50 milliseconds
+0 keyqueries per second since last report 
+	100.00 % in under 50 milliseconds
+1,653 updates per second since last report 
+	0.41 % in under 50 milliseconds
+0 rangequeries per second since last report 
+	100.00 % in under 50 milliseconds
+
+------------------------
+After 113 seconds (12:09:02), 154,970 new documents inserted - collection has 154,970 in total 
+1,733 inserts per second since last report 
+	0.00 % in under 50 milliseconds
+0 keyqueries per second since last report 
+	100.00 % in under 50 milliseconds
+1,339 updates per second since last report 
+	1.47 % in under 50 milliseconds
+0 rangequeries per second since last report 
+	100.00 % in under 50 milliseconds
+
+------------------------
+After 123 seconds (12:09:12), 158,554 new documents inserted - collection has 158,554 in total 
+358 inserts per second since last report 
+	0.00 % in under 50 milliseconds
+0 keyqueries per second since last report 
+	100.00 % in under 50 milliseconds
+460 updates per second since last report 
+	0.00 % in under 50 milliseconds
+0 rangequeries per second since last report 
+	100.00 % in under 50 milliseconds
+
+------------------------
+After 133 seconds (12:09:22), 163,384 new documents inserted - collection has 163,384 in total 
+483 inserts per second since last report 
+	0.00 % in under 50 milliseconds
+0 keyqueries per second since last report 
+	100.00 % in under 50 milliseconds
+604 updates per second since last report 
+	0.08 % in under 50 milliseconds
+0 rangequeries per second since last report 
+	100.00 % in under 50 milliseconds
+
+------------------------
+After 143 seconds (12:09:32), 168,198 new documents inserted - collection has 168,198 in total 
+480 inserts per second since last report 
+	0.00 % in under 50 milliseconds
+0 keyqueries per second since last report 
+	100.00 % in under 50 milliseconds
+420 updates per second since last report 
+	0.29 % in under 50 milliseconds
+0 rangequeries per second since last report 
+	100.00 % in under 50 milliseconds
+
+------------------------
+After 153 seconds (12:09:42), 168,782 new documents inserted - collection has 168,782 in total 
+58 inserts per second since last report 
+	0.00 % in under 50 milliseconds
+0 keyqueries per second since last report 
+	100.00 % in under 50 milliseconds
+51 updates per second since last report 
+	0.00 % in under 50 milliseconds
+0 rangequeries per second since last report 
+	100.00 % in under 50 milliseconds
+
+------------------------
+After 163 seconds (12:09:52), 169,806 new documents inserted - collection has 169,806 in total 
+102 inserts per second since last report 
+	0.00 % in under 50 milliseconds
+0 keyqueries per second since last report 
+	100.00 % in under 50 milliseconds
+55 updates per second since last report 
+	0.03 % in under 50 milliseconds
+0 rangequeries per second since last report 
+	100.00 % in under 50 milliseconds
+
+------------------------
+After 173 seconds (12:10:02), 176,965 new documents inserted - collection has 176,965 in total 
+716 inserts per second since last report 
+	0.00 % in under 50 milliseconds
+0 keyqueries per second since last report 
+	100.00 % in under 50 milliseconds
+787 updates per second since last report 
+	0.14 % in under 50 milliseconds
+0 rangequeries per second since last report 
+	100.00 % in under 50 milliseconds
+
+------------------------
+After 183 seconds (12:10:12), 193,726 new documents inserted - collection has 193,726 in total 
+1,675 inserts per second since last report 
+	0.00 % in under 50 milliseconds
+0 keyqueries per second since last report 
+	100.00 % in under 50 milliseconds
+1,434 updates per second since last report 
+	0.06 % in under 50 milliseconds
+0 rangequeries per second since last report 
+	100.00 % in under 50 milliseconds
+
+------------------------
+After 193 seconds (12:10:22), 214,237 new documents inserted - collection has 214,237 in total 
+2,051 inserts per second since last report 
+	0.00 % in under 50 milliseconds
+0 keyqueries per second since last report 
+	100.00 % in under 50 milliseconds
+1,778 updates per second since last report 
+	0.26 % in under 50 milliseconds
+0 rangequeries per second since last report 
+	100.00 % in under 50 milliseconds
+
+------------------------
+After 203 seconds (12:10:32), 233,443 new documents inserted - collection has 233,443 in total 
+1,920 inserts per second since last report 
+	0.00 % in under 50 milliseconds
+0 keyqueries per second since last report 
+	100.00 % in under 50 milliseconds
+1,663 updates per second since last report 
+	0.00 % in under 50 milliseconds
+0 rangequeries per second since last report 
+	100.00 % in under 50 milliseconds
+
+------------------------
+After 213 seconds (12:10:42), 252,908 new documents inserted - collection has 252,908 in total 
+1,945 inserts per second since last report 
+	0.00 % in under 50 milliseconds
+0 keyqueries per second since last report 
+	100.00 % in under 50 milliseconds
+1,380 updates per second since last report 
+	0.45 % in under 50 milliseconds
+0 rangequeries per second since last report 
+	100.00 % in under 50 milliseconds
+
+------------------------
+After 223 seconds (12:10:52), 269,681 new documents inserted - collection has 269,681 in total 
+1,677 inserts per second since last report 
+	0.00 % in under 50 milliseconds
+0 keyqueries per second since last report 
+	100.00 % in under 50 milliseconds
+1,087 updates per second since last report 
+	0.22 % in under 50 milliseconds
+0 rangequeries per second since last report 
+	100.00 % in under 50 milliseconds
+
+------------------------
+After 233 seconds (12:11:02), 290,552 new documents inserted - collection has 290,552 in total 
+2,086 inserts per second since last report 
+	0.00 % in under 50 milliseconds
+0 keyqueries per second since last report 
+	100.00 % in under 50 milliseconds
+1,820 updates per second since last report 
+	0.27 % in under 50 milliseconds
+0 rangequeries per second since last report 
+	100.00 % in under 50 milliseconds
+
+------------------------
+After 243 seconds (12:11:12), 309,300 new documents inserted - collection has 309,300 in total 
+1,874 inserts per second since last report 
+	0.00 % in under 50 milliseconds
+0 keyqueries per second since last report 
+	100.00 % in under 50 milliseconds
+1,628 updates per second since last report 
+	0.14 % in under 50 milliseconds
+0 rangequeries per second since last report 
+	100.00 % in under 50 milliseconds
+
+------------------------
+After 253 seconds (12:11:22), 325,674 new documents inserted - collection has 325,674 in total 
+1,637 inserts per second since last report 
+	0.00 % in under 50 milliseconds
+0 keyqueries per second since last report 
+	100.00 % in under 50 milliseconds
+1,636 updates per second since last report 
+	0.48 % in under 50 milliseconds
+0 rangequeries per second since last report 
+	100.00 % in under 50 milliseconds
+
+------------------------
+After 263 seconds (12:11:32), 345,913 new documents inserted - collection has 345,913 in total 
+2,023 inserts per second since last report 
+	0.00 % in under 50 milliseconds
+0 keyqueries per second since last report 
+	100.00 % in under 50 milliseconds
+1,460 updates per second since last report 
+	0.13 % in under 50 milliseconds
+0 rangequeries per second since last report 
+	100.00 % in under 50 milliseconds
+
+------------------------
+After 273 seconds (12:11:42), 363,923 new documents inserted - collection has 363,923 in total 
+1,801 inserts per second since last report 
+	0.00 % in under 50 milliseconds
+0 keyqueries per second since last report 
+	100.00 % in under 50 milliseconds
+1,386 updates per second since last report 
+	0.16 % in under 50 milliseconds
+0 rangequeries per second since last report 
+	100.00 % in under 50 milliseconds
+
+------------------------
+After 283 seconds (12:11:52), 381,245 new documents inserted - collection has 381,245 in total 
+1,730 inserts per second since last report 
+	0.00 % in under 50 milliseconds
+0 keyqueries per second since last report 
+	100.00 % in under 50 milliseconds
+1,441 updates per second since last report 
+	0.16 % in under 50 milliseconds
+0 rangequeries per second since last report 
+	100.00 % in under 50 milliseconds
+
+------------------------
+After 293 seconds (12:12:02), 402,297 new documents inserted - collection has 402,297 in total 
+2,106 inserts per second since last report 
+	0.00 % in under 50 milliseconds
+0 keyqueries per second since last report 
+	100.00 % in under 50 milliseconds
+1,992 updates per second since last report 
+	0.29 % in under 50 milliseconds
+0 rangequeries per second since last report 
+	100.00 % in under 50 milliseconds
+
+------------------------
+After 303 seconds (12:12:12), 420,169 new documents inserted - collection has 420,169 in total 
+1,786 inserts per second since last report 
+	0.00 % in under 50 milliseconds
+0 keyqueries per second since last report 
+	100.00 % in under 50 milliseconds
+1,267 updates per second since last report 
+	0.23 % in under 50 milliseconds
+0 rangequeries per second since last report 
+	100.00 % in under 50 milliseconds
+

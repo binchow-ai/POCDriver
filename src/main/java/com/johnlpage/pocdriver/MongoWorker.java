@@ -7,8 +7,10 @@ import static com.mongodb.client.model.Sorts.descending;
 import com.mongodb.bulk.BulkWriteResult;
 import com.mongodb.client.*;
 import com.mongodb.client.model.BulkWriteOptions;
+import com.mongodb.client.model.FindOneAndUpdateOptions;
 import com.mongodb.client.model.InsertOneModel;
 import com.mongodb.client.model.UpdateManyModel;
+import com.mongodb.client.model.UpdateOptions;
 import com.mongodb.client.model.WriteModel;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
@@ -459,9 +461,11 @@ public class MongoWorker implements Runnable {
         }
 
         if (!testOpts.findandmodify) {
-            bulkWriter.add(new UpdateManyModel<Document>(query, change));
+            UpdateOptions updateOptions = testOpts.upsert ? new UpdateOptions().upsert(true) : new UpdateOptions();
+            bulkWriter.add(new UpdateManyModel<Document>(query, change, updateOptions));
         } else {
-            this.coll.findOneAndUpdate(query, change); // These are immediate not batches
+            FindOneAndUpdateOptions opts = testOpts.upsert ? new FindOneAndUpdateOptions().upsert(true) : new FindOneAndUpdateOptions();
+            this.coll.findOneAndUpdate(query, change, opts); // These are immediate not batches
         }
         testResults.RecordOpsDone("updates", 1);
     }
@@ -494,9 +498,11 @@ public class MongoWorker implements Runnable {
 
 
         if (!testOpts.findandmodify) {
-            bulkWriter.add(new UpdateManyModel<Document>(query, change));
+            UpdateOptions updateOptions = testOpts.upsert ? new UpdateOptions().upsert(true) : new UpdateOptions();
+            bulkWriter.add(new UpdateManyModel<Document>(query, change, updateOptions));
         } else {
-            this.coll.findOneAndUpdate(query, change); // These are immediate not batches
+            FindOneAndUpdateOptions opts = testOpts.upsert ? new FindOneAndUpdateOptions().upsert(true) : new FindOneAndUpdateOptions();
+            this.coll.findOneAndUpdate(query, change, opts); // These are immediate not batches
         }
         testResults.RecordOpsDone("updates", 1);
     }

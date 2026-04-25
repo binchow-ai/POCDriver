@@ -124,6 +124,7 @@ Note: If you specify a workflow via the `-v` flag, the basic operations above wi
 | Flag                                | Description |
 | ----------------------------------- | ----------- |
 | `-m`, `--findandmodify`             | Use findAndModify instead of update and retrieve document (with `-u` or `-v` only)
+| `--upsert`                          | Use upsert (insert if not found) for update operations (with `-u` or `-v` only; can combine with `-m`)
 | `-j <arg>`, `--workingset <arg>`    | Percentage of database to be the working set (default 100)
 | `-b <arg>`, `--bulksize <arg>`      | Bulk op size (default 512)
 | `--rangedocs <arg>`                 | Number of documents to fetch for range queries (default 10)
